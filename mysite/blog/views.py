@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.utils import timezone
-from blog.models import Post, Comment
-from blog.forms import PostForm, CommentForm
-from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from blog.models import Post, Comment
+from django.utils import timezone
+from blog.forms import PostForm, CommentForm
 from django.views.generic import (TemplateView, ListView,
                                   DetailView, CreateView,
                                   UpdateView, DeleteView)
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 #####################################
@@ -51,7 +51,7 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
 
 class DraftListView(LoginRequiredMixin, ListView):
     login_url = '/login/'
-    redirect_field_name = '/blog/post_list.html'
+    redirect_field_name = 'blog/post_list.html'
     model = Post
 
     def get_queryset(self):

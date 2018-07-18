@@ -24,45 +24,29 @@
 </head>
 <body class="loader">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'blog:post_list' %}">My blog<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:about' %}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.github.com/sa4dkhan/">Github</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://sa4dkhan.pythonanywhere.com">Portfolio</a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-default techfont custom-navbar">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand bigbrand" href="{% url 'blog:post_list' %}">My blog</a></li>
+                <li><a href="{% url 'blog:about' %}">About</a></li>
+                <li><a href="https://www.github.com/sa4dkhan">Github</a></li>
+                <li><a href="http://sa4dkhan.pythonanywhere.com">Portfolio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li><a class="navbar-brand" href="{% url 'blog:post_new' %}">New Post</a></li>
+                    <li><a class="navbar-brand" href="{% url 'blog:post_draft_list' %}">Drafts</a></li>
+                    <li><a class="navbar-brand" href="{% url 'logout' %}">Log Out</a></li>
+                    <li><a class="navbar-brand navbar-right">Welcome {{ user.username }}</a></li>
+                {% else %}
+                    <li><a class="navbar-brand bigbrand" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
 
-        <ul class="navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'blog:post_new' %}">New Post</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'blog:post_draft_list' %}">Drafts</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </li>
-                <li><a>Welcome: {{ user.username }}</a></li>
-            {% else %}
-                <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-        </ul>
-      </div>
+                {% endif %}
+
+            </ul>
+        </div>
     </nav>
+
     <!--Content block-->
     <div class="content container">
         <div class="row">
