@@ -27,15 +27,15 @@
     <nav class="navbar navbar-default techfont custom-navbar">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li><a class="navbar-brand bigbrand" href="{% url 'blog:post_list' %}">My blog</a></li>
-                <li><a href="{% url 'blog:about' %}">About</a></li>
+                <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My blog</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="https://www.github.com/sa4dkhan">Github</a></li>
                 <li><a href="http://sa4dkhan.pythonanywhere.com">Portfolio</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                    <li><a class="navbar-brand" href="{% url 'blog:post_new' %}">New Post</a></li>
-                    <li><a class="navbar-brand" href="{% url 'blog:post_draft_list' %}">Drafts</a></li>
+                    <li><a class="navbar-brand" href="{% url 'post_new' %}">New Post</a></li>
+                    <li><a class="navbar-brand" href="{% url 'draft_list' %}">Drafts</a></li>
                     <li><a class="navbar-brand" href="{% url 'logout' %}">Log Out</a></li>
                     <li><a class="navbar-brand navbar-right">Welcome {{ user.username }}</a></li>
                 {% else %}

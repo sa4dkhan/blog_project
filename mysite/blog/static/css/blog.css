@@ -16,7 +16,7 @@
 }
 .posttitle{
     font-family: 'Russo One', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.6em;
     text-align: center;
 }
 
@@ -33,7 +33,7 @@
 /*Color changer below*/
 .loader {
   filter:hue-rotate(0deg);
-  background:linear-gradient(45deg,#0f8,#08f);
+  color:linear-gradient(45deg, #ddd6e3, #fffff5);
   animation:hue 10000ms infinite linear;
 
 }
